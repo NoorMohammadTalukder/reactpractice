@@ -8,6 +8,9 @@ const Head = () => {
             <Link to="/profile">Profile</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/product/1">Student</Link>
+            <Link to="/posts">All Posts</Link>
+            <Link to="/effect">Effect State</Link>
+            <Link to="/color">Color State</Link>
         </div>
     )
 }
