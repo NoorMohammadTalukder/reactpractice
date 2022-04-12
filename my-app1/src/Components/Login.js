@@ -1,7 +1,13 @@
 import React, { useState, userEffect } from "react";
 import axios from "axios";
+// import { BrowserRouter as Redirect } from "react-router-dom";
+// import { Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+
 
 const Login = () => {
+    let history = useHistory();
+    // const navigate = Redirect();
     let [token, setToken] = useState("");
     let [name, setName] = useState("");
     let [password, setPassword] = useState("");
@@ -15,6 +21,14 @@ const Login = () => {
                 var user = { userId: token.userid, access_token: token.token };
                 localStorage.setItem('email', JSON.stringify(user));
                 console.log(localStorage.getItem('user'));
+                if (token.token != null) {
+                    alert("Signin successful");
+                    history.push("/allproducts");
+                }
+                // alert("Signin successful");
+                // return <Redirect to="http://localhost:3000/allproducts" />;
+                // navigate("/allproducts")
+                // history.push("/allproducts");
             }).catch(err => {
                 console.log(err);
             });
@@ -25,8 +39,8 @@ const Login = () => {
     return (
         <div>
             <form>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                <b>Email:</b><br></br><input type="text" value={name} onChange={(e) => setName(e.target.value)}></input> <br></br>
+                <b>Password:</b><br></br><input type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
 
             </form>
             <button onClick={loginSubmit}>Login</button>
