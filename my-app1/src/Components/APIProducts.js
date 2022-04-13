@@ -8,8 +8,13 @@ const APIProducts = (props) => {
         // axios.get("product/list")
         axios.get("http://127.0.0.1:8000/api/product/list")
             .then(resp => {
-                console.log(resp.data);
-                setProducts(resp.data);
+                var a = window.sessionStorage.getItem("token");
+                console.log(a);
+                if (a == "exists") {
+                    console.log(resp.data);
+                    setProducts(resp.data);
+                }
+
             }).catch(err => {
                 console.log(err);
                 console.log("not found");
@@ -35,7 +40,7 @@ const APIProducts = (props) => {
 
     return (
         <div>
-            <h1>All Products</h1>
+            <h1> See all Products</h1>
             <ul>
                 {
                     products.map(p => (

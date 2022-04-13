@@ -14,6 +14,8 @@ const Head = () => {
             <Link to="/Registration">Registration</Link>
             <Link to="/login">Login</Link>
             <Link to="/allproducts">Products</Link>
+            <Link to="/update">Update</Link>
+            <Link to="/logout">Logout</Link>
         </div>
     )
 }

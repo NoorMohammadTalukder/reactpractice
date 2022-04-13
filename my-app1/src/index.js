@@ -16,6 +16,8 @@ import ColorState from './Components/ColorState';
 import Login from './Components/Login';
 import Registration from './Components/Registration';
 import APIProducts from './Components/APIProducts';
+import Update from './Components/Update';
+import Logout from './Components/Logout';
 import axios from 'axios';
 
 var token = null;
@@ -71,6 +73,9 @@ ReactDOM.render(
         </Route>
         <Route exact path="/Registration">
           <Registration />
+        </Route>
+        <Route exact path="/logout">
+          <Logout />
         </Route>
 
 
